@@ -1,0 +1,2818 @@
+{
+	"info": {
+		"_postman_id": "68ccd8ec-5998-49d4-b799-63b83f6a88bd",
+		"name": "Adidas product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get a single product by id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9d47e39f-b188-4964-8a08-6b5755bb44a3",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "invalid_id"
+										}
+									]
+								},
+								"description": "Get a specific product by id"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"<string>\",\n \"name\": \"<string>\",\n \"description\": \"<string>\",\n \"currency\": \"<string>\",\n \"price\": \"<number>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Updates a product in the database",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) The id of the product"
+										}
+									]
+								},
+								"description": "Put product object"
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete a product in the database",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<string>",
+											"description": "(Required) The id of the product"
+										}
+									]
+								},
+								"description": "Post product object"
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get all the products with the prices",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						},
+						"description": "Get all the products"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n {\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"price\": \"<number>\"\n },\n {\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"price\": \"<number>\"\n }\n]"
+						}
+					]
+				},
+				{
+					"name": "Creates a product in the database",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/product",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"product"
+							]
+						},
+						"description": "Post product object"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Parameters fail",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "test cases",
+			"item": [
+				{
+					"name": "Get all the products with the prices",
+					"item": [
+						{
+							"name": "Should get all the products with the prices",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0f2d763a-dcfc-42b6-aa14-5b705f48c7e3",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n {\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"price\": \"<number>\"\n },\n {\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"currency\": \"<string>\",\n  \"price\": \"<number>\"\n }\n]"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Get a single product by id",
+					"item": [
+						{
+							"name": "Should not get product data for invalid id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9d47e39f-b188-4964-8a08-6b5755bb44a3",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 200ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "invalid_id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"<string>\",\n \"name\": \"<string>\",\n \"description\": \"<string>\",\n \"currency\": \"<string>\",\n \"price\": \"<number>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Should get product data for valid id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9d47e39f-b188-4964-8a08-6b5755bb44a3",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});",
+											"",
+											"const responseJson = pm.response.json();",
+											"",
+											"pm.test(\"Response body test\", () => {",
+											"  pm.expect(responseJson.id).to.eql(\"1\");",
+											"  pm.expect(responseJson.name).to.eql(\"Product Abc\");",
+											"  pm.expect(responseJson.description).to.eql(\"Product Abc Description\");",
+											"});",
+											"",
+											"pm.test(\"Test data type of the response\", () => {",
+											"  pm.expect(responseJson).to.be.an(\"object\");",
+											"  pm.expect(responseJson.id).to.be.a(\"string\");",
+											"  pm.expect(responseJson.name).to.be.a(\"string\");",
+											"  pm.expect(responseJson.description).to.be.a(\"string\");",
+											"  pm.expect(responseJson.currency).to.be.a(\"string\");",
+											"  pm.expect(responseJson.price).to.be.a(\"number\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "14be03c6-348a-4def-8bf7-89b83306ed6f",
+										"exec": [
+											"pm.sendRequest({",
+											"    url: `${pm.variables.get(\"baseUrl\")}/product/1`,",
+											"    method: 'DELETE',",
+											"    header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product\");  ",
+											"});",
+											"",
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/`,",
+											"method: 'POST',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"body: { ",
+											"    mode: 'raw',",
+											"    raw:JSON.stringify({",
+											"      \"id\": \"1\",",
+											"      \"name\": \"Product Abc\",",
+											"      \"description\": \"Product Abc Description\"",
+											"    })",
+											"}},",
+											"function (err, response) {  ",
+											"    console.log(\"Create Product\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"<string>\",\n \"name\": \"<string>\",\n \"description\": \"<string>\",\n \"currency\": \"<string>\",\n \"price\": \"<number>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Should not get data for deleted product id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9d47e39f-b188-4964-8a08-6b5755bb44a3",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "14be03c6-348a-4def-8bf7-89b83306ed6f",
+										"exec": [
+											"pm.sendRequest({",
+											"    url: `${pm.variables.get(\"baseUrl\")}/product/1`,",
+											"    method: 'DELETE',",
+											"    header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"<string>\",\n \"name\": \"<string>\",\n \"description\": \"<string>\",\n \"currency\": \"<string>\",\n \"price\": \"<number>\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Should get updated product data",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9d47e39f-b188-4964-8a08-6b5755bb44a3",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});",
+											"",
+											"const responseJson = pm.response.json();",
+											"",
+											"pm.test(\"Response body test\", () => {",
+											"  pm.expect(responseJson.id).to.eql(\"1\");",
+											"  pm.expect(responseJson.name).to.eql(\"Product Abc Updated\");",
+											"  pm.expect(responseJson.description).to.eql(\"Product Abc Description Updated\");",
+											"});",
+											"",
+											"pm.test(\"Test data type of the response\", () => {",
+											"  pm.expect(responseJson).to.be.an(\"object\");",
+											"  pm.expect(responseJson.id).to.be.a(\"string\");",
+											"  pm.expect(responseJson.name).to.be.a(\"string\");",
+											"  pm.expect(responseJson.description).to.be.a(\"string\");",
+											"  pm.expect(responseJson.currency).to.be.a(\"string\");",
+											"  pm.expect(responseJson.price).to.be.a(\"number\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "14be03c6-348a-4def-8bf7-89b83306ed6f",
+										"exec": [
+											"pm.sendRequest({",
+											"    url: `${pm.variables.get(\"baseUrl\")}/product/`,",
+											"    method: 'POST',",
+											"    header: {\"Content-Type\": \"application/json\"},",
+											"    body: { ",
+											"        mode: 'raw',",
+											"        raw:JSON.stringify({",
+											"          \"id\": \"1\",",
+											"          \"name\": \"Product Abc\",",
+											"          \"description\": \"Product Abc Description\"",
+											"        })",
+											"    }},",
+											"    function (err, response) {  ",
+											"        console.log(\"Create Product\");  ",
+											"    }",
+											");",
+											"",
+											"pm.sendRequest({",
+											"    url: `${pm.variables.get(\"baseUrl\")}/product/1`,",
+											"    method: 'PUT',",
+											"    header: {\"Content-Type\": \"application/json\"},",
+											"    body: { ",
+											"        mode: 'raw',",
+											"        raw:JSON.stringify({",
+											"          \"id\": \"1\",",
+											"          \"name\": \"Product Abc Updated\",",
+											"          \"description\": \"Product Abc Description Updated\"",
+											"        })",
+											"    }},",
+											"    function (err, response) {  ",
+											"        console.log(\"Create Product\");  ",
+											"    }",
+											");"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n \"id\": \"<string>\",\n \"name\": \"<string>\",\n \"description\": \"<string>\",\n \"currency\": \"<string>\",\n \"price\": \"<number>\"\n}"
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Creates a product in the database",
+					"item": [
+						{
+							"name": "Should be able to create a product with valid data",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0402af9-202b-4e1b-80d3-6183694c02d9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "c359ea34-604d-49a8-a729-3c42812fb286",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});",
+											"",
+											"const responseJson = pm.response.json();",
+											"",
+											"pm.test(\"Response body test\", () => {",
+											"  pm.expect(responseJson.id).to.eql(\"2\");",
+											"  pm.expect(responseJson.name).to.eql(\"Sample product 2\");",
+											"  pm.expect(responseJson.description).to.eql(\"Sample product 2 des\");",
+											"});",
+											"",
+											"pm.test(\"Test data type of the response\", () => {",
+											"  pm.expect(responseJson).to.be.an(\"object\");",
+											"  pm.expect(responseJson.id).to.be.a(\"string\");",
+											"  pm.expect(responseJson.name).to.be.a(\"string\");",
+											"  pm.expect(responseJson.description).to.be.a(\"string\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"2\",\n    \"name\": \"Sample product 2\",\n    \"description\": \"Sample product 2 des\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to create a product with null id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0402af9-202b-4e1b-80d3-6183694c02d9",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "c359ea34-604d-49a8-a729-3c42812fb286",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": null,\n    \"name\": \"Null id product\",\n    \"description\": \"Null id product des\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to update the products with an existing id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0402af9-202b-4e1b-80d3-6183694c02d9",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/`,",
+											"method: 'POST',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"body: { ",
+											"    mode: 'raw',",
+											"    raw:JSON.stringify({",
+											"      \"id\": \"3\",",
+											"      \"name\": \"Sample product 3\",",
+											"      \"description\": \"Sample product 3 desc\"",
+											"    })",
+											"}},",
+											"function (err, response) {  ",
+											"    console.log(\"Create Product\");  ",
+											"});",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "c359ea34-604d-49a8-a729-3c42812fb286",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"3\",\n    \"name\": \"Sample product 3 new\",\n    \"description\": \"Sample product 3 des new\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should be able to add a deleted product id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0402af9-202b-4e1b-80d3-6183694c02d9",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/4`,",
+											"method: 'DELETE',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product with id 4\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "c359ea34-604d-49a8-a729-3c42812fb286",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});",
+											"",
+											"const responseJson = pm.response.json();",
+											"",
+											"pm.test(\"Response body test\", () => {",
+											"  pm.expect(responseJson.id).to.eql(\"4\");",
+											"  pm.expect(responseJson.name).to.eql(\"Sample product 4 created\");",
+											"  pm.expect(responseJson.description).to.eql(\"Sample product 4 des created\");",
+											"});",
+											"",
+											"pm.test(\"Test data type of the response\", () => {",
+											"  pm.expect(responseJson).to.be.an(\"object\");",
+											"  pm.expect(responseJson.id).to.be.a(\"string\");",
+											"  pm.expect(responseJson.name).to.be.a(\"string\");",
+											"  pm.expect(responseJson.description).to.be.a(\"string\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"4\",\n    \"name\": \"Sample product 4 created\",\n    \"description\": \"Sample product 4 des created\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should have the maximum char length for the product name and desc",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0402af9-202b-4e1b-80d3-6183694c02d9",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/5`,",
+											"method: 'DELETE',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product with id 5\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "c359ea34-604d-49a8-a729-3c42812fb286",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"5\",\n    \"name\": \"Product Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \",\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should have a product name ",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "e0402af9-202b-4e1b-80d3-6183694c02d9",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/6`,",
+											"method: 'DELETE',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product with id 6\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "c359ea34-604d-49a8-a729-3c42812fb286",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"6\",\n    \"name\": \"\",\n    \"description\": \"Sample product 6 desc\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Updates a product in the database",
+					"item": [
+						{
+							"name": "Should be able to update a product with valid data",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "94dcc769-b7c8-4a34-ac77-39d597236ebc",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/`,",
+											"method: 'POST',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"body: { ",
+											"    mode: 'raw',",
+											"    raw:JSON.stringify({",
+											"      \"id\": \"7\",",
+											"      \"name\": \"Sample product 7\",",
+											"      \"description\": \"Sample product 7 desc\"",
+											"    })",
+											"}},",
+											"function (err, response) {  ",
+											"    console.log(\"Create Product\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "077df1ef-05b3-4a50-ade8-2abefbb625aa",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});",
+											"",
+											"const responseJson = pm.response.json();",
+											"",
+											"pm.test(\"Response body test\", () => {",
+											"  pm.expect(responseJson.id).to.eql(\"7\");",
+											"  pm.expect(responseJson.name).to.eql(\"Sample product 7 Updated\");",
+											"  pm.expect(responseJson.description).to.eql(\"Sample product 7 desc Updated\");",
+											"});",
+											"",
+											"pm.test(\"Test data type of the response\", () => {",
+											"  pm.expect(responseJson).to.be.an(\"object\");",
+											"  pm.expect(responseJson.id).to.be.a(\"string\");",
+											"  pm.expect(responseJson.name).to.be.a(\"string\");",
+											"  pm.expect(responseJson.description).to.be.a(\"string\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"7\",\n    \"name\": \"Sample product 7 Updated\",\n    \"description\": \"Sample product 7 desc Updated\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "7",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to update a deleted product id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "94dcc769-b7c8-4a34-ac77-39d597236ebc",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/9`,",
+											"method: 'DELETE',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product with id 9\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "077df1ef-05b3-4a50-ade8-2abefbb625aa",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"9\",\n    \"name\": \"Sample product 9 Updated\",\n    \"description\": \"Sample product 9 desc Updated\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "9",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to update with a null id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "94dcc769-b7c8-4a34-ac77-39d597236ebc",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "077df1ef-05b3-4a50-ade8-2abefbb625aa",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"id\": \"\",\n    \"name\": \"Sample product null id\",\n    \"description\": \"Sample product null id\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to update with longer product names and descriptions",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "94dcc769-b7c8-4a34-ac77-39d597236ebc",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/10`,",
+											"method: 'DELETE',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product with id 10\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "077df1ef-05b3-4a50-ade8-2abefbb625aa",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"10\",\n    \"name\": \"Product Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \",\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "10",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\"\n}"
+										},
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Delete a product in the database",
+					"item": [
+						{
+							"name": "Should be able to delete an existing record",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "bbcca8f6-a117-452f-9378-a0ec5b1f5279",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/`,",
+											"method: 'POST',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"body: { ",
+											"    mode: 'raw',",
+											"    raw:JSON.stringify({",
+											"      \"id\": \"11\",",
+											"      \"name\": \"Sample product 11\",",
+											"      \"description\": \"Sample product 11 desc\"",
+											"    })",
+											"}},",
+											"function (err, response) {  ",
+											"    console.log(\"Create Product\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "be750370-e4d6-4bdd-8d22-7014c97fdb77",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});",
+											"",
+											"const responseJson = pm.response.json();",
+											"",
+											"pm.test(\"Response body test\", () => {",
+											"  pm.expect(responseJson.ok).to.eql(1);",
+											"});",
+											"",
+											"pm.test(\"Test data type of the response\", () => {",
+											"  pm.expect(responseJson).to.be.an(\"object\");",
+											"  pm.expect(responseJson.ok).to.be.a(\"number\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "11",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to delete a already deleted record",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "bbcca8f6-a117-452f-9378-a0ec5b1f5279",
+										"exec": [
+											"pm.sendRequest({",
+											"url: `${pm.variables.get(\"baseUrl\")}/product/12`,",
+											"method: 'DELETE',",
+											"header: {\"Content-Type\": \"application/json\"},",
+											"},",
+											"function (err, response) {  ",
+											"    console.log(\"Delete Product with id 12\");  ",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "be750370-e4d6-4bdd-8d22-7014c97fdb77",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Should not be able to delete with a null id",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "bbcca8f6-a117-452f-9378-a0ec5b1f5279",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "be750370-e4d6-4bdd-8d22-7014c97fdb77",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"    pm.response.to.have.status(404);",
+											"});",
+											"pm.test(\"Response time is less than 100ms\", function () {",
+											"    pm.expect(pm.response.responseTime).to.be.below(100);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "",
+											"description": "(Required) The id of the product"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Parameters fail",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cc1dbf5f-f9c3-428a-8013-caa8bd8f4f6f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6935bd12-74d7-46a3-bfad-040f463a6bba",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "d8f52eee-e48d-4cbd-a566-170ef53d8b45",
+			"key": "baseUrl",
+			"value": "http://localhost:3001",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
